@@ -153,7 +153,7 @@ class NeuralMassModel:
 
             act_vector_to_mat = np.kron(np.ones((self.num_regions, 1)), act_vector)
             input_activity = np.multiply(autocorr, input_activity) + np.sum(
-                np.multiply(act_vector_to_mat, self.synaptic_weight), axis=1)
+                np.multiply(act_vector_to_mat, synaptic_weight), axis=1)
 
             input_activity = input_activity + np.random.normal(0, spont_act_level, (self.num_regions,))
             outputvect = sigmoid(k * (bias + input_activity))
