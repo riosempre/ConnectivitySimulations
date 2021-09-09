@@ -135,7 +135,7 @@ class NeuralMassModel:
         bias = np.zeros(shape=(self.num_regions,))
         bias[range(self.num_regions)] = bias_param
         autocorr = 0.0
-        global_coupling_mat = self.synaptic_weight*g
+        global_coupling_mat = self.synaptic_weight.copy()*g
         np.fill_diagonal(global_coupling_mat, 0)
         indep_var_mat = np.identity(self.num_regions)*indep
         synaptic_weight = global_coupling_mat+indep_var_mat
