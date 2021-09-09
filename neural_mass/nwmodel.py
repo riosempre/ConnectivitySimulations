@@ -138,7 +138,7 @@ class NeuralMassModel:
         global_coupling_mat = self.synaptic_weight*g
         np.fill_diagonal(global_coupling_mat, 0)
         indep_var_mat = np.identity(self.num_regions)*indep
-        self.synaptic_weight = global_coupling_mat+indep_var_mat
+        synaptic_weight = global_coupling_mat+indep_var_mat
         outputvect = np.zeros(self.num_regions)
 
         for this_time_point in range(0, num_time_points):
